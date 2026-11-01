@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://cq4s2c577g325"]
+
+[ext_resource type="Script" uid="uid://bjxslt5t6t0x6" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="AudioStream" uid="uid://dqwja0rwrwwl5" path="res://assets/sounds/hover.mp3" id="2_ekxnf"]
+[ext_resource type="AudioStream" uid="uid://bw8uohm51rwgg" path="res://assets/sounds/confirm.mp3" id="3_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://coelgqd24hmiy" path="res://assets/sounds/backsound.mp3" id="4_wu84c"]
+[ext_resource type="AudioStream" uid="uid://bpoithyhqngpy" path="res://assets/sounds/Version notes and credits.mp3" id="5_8ln24"]
+
+[node name="MainMenu" type="Control" unique_id=815951428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1110487554]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.33333334, 0.5882353, 0.827451, 1)
+
+[node name="MenuContainer" type="CenterContainer" parent="." unique_id=299753436]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBottons" type="VBoxContainer" parent="MenuContainer" unique_id=1060226590]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="MenuContainer/MenuBottons" unique_id=1629429013]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "GAME TITLE"
+
+[node name="StartGame" type="Button" parent="MenuContainer/MenuBottons" unique_id=1387456412]
+custom_minimum_size = Vector2(220, 45)
+layout_mode = 2
+text = "Start Game"
+
+[node name="VersionNotes" type="Button" parent="MenuContainer/MenuBottons" unique_id=1281390640]
+custom_minimum_size = Vector2(220, 45)
+layout_mode = 2
+text = "Version Notes"
+
+[node name="Credits" type="Button" parent="MenuContainer/MenuBottons" unique_id=193638486]
+custom_minimum_size = Vector2(220, 45)
+layout_mode = 2
+text = "Credits"
+
+[node name="VersionNotes" type="Panel" parent="." unique_id=2023763769]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VersionMargins" type="MarginContainer" parent="VersionNotes" unique_id=6898606]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VersionNotesContent" type="VBoxContainer" parent="VersionNotes/VersionMargins" unique_id=528214822]
+layout_mode = 2
+
+[node name="VersionTitle" type="Label" parent="VersionNotes/VersionMargins/VersionNotesContent" unique_id=1220811486]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "VERSION NOTES"
+horizontal_alignment = 1
+
+[node name="BackCenter" type="CenterContainer" parent="VersionNotes/VersionMargins/VersionNotesContent" unique_id=368602735]
+layout_mode = 2
+
+[node name="VersionBackButton" type="Button" parent="VersionNotes/VersionMargins/VersionNotesContent/BackCenter" unique_id=2021471174]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+text = "Back"
+
+[node name="VersionScroll" type="ScrollContainer" parent="VersionNotes/VersionMargins/VersionNotesContent" unique_id=1835411152]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VersionText" type="RichTextLabel" parent="VersionNotes/VersionMargins/VersionNotesContent/VersionScroll" unique_id=1415664694]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Version 0.1
+-Added player movement
+-Added enemies
+-Added moving platforms
+-Added death and respawning
+-Added death sound
+-Added main menu
+
+Main Menu
+-Added a new title screen that appears when the game is launched.
+-Added a Start Game btton that loads the main gameplay scene.
+-Added a Version Notes button for viewing development team and contributors.
+-Added a Credits button for viewing the development team and contributors.
+-Improved the organization of the menu using containers.
+-Created the menu so that placeholders visuals can be replaced with final artwork
+
+Version Notes
+-Added a dedicated Version Notes screen.
+-Added a scrollable area so older development updates can remain available as the project grows.
+-Version notes now display the newest updates first.
+-Added a Back button for returning to menu.
+-Organized the version notes so future features, fixes, and changes can be added.
+
+Credits
+-Added a credits screen.
+-Added Vertically scrolling movie-style credits.
+-Added support for longer credit lists as more people contribute.
+-Added a fixed Back button that remains available.
+-The credits can be expanded later with roles, artwork, and other information"
+fit_content = true
+
+[node name="CreditsPanel" type="Panel" parent="." unique_id=1177646592]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditMargins" type="MarginContainer" parent="CreditsPanel" unique_id=419900469]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="CreditsContent" type="VBoxContainer" parent="CreditsPanel/CreditMargins" unique_id=2131094663]
+layout_mode = 2
+
+[node name="BackCenter" type="CenterContainer" parent="CreditsPanel/CreditMargins/CreditsContent" unique_id=281052559]
+layout_mode = 2
+
+[node name="CreditBackButton" type="Button" parent="CreditsPanel/CreditMargins/CreditsContent/BackCenter" unique_id=1650287617]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+text = "Back"
+
+[node name="CreditsScroll" type="ScrollContainer" parent="CreditsPanel/CreditMargins/CreditsContent" unique_id=1829453988]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ScrollMargin" type="MarginContainer" parent="CreditsPanel/CreditMargins/CreditsContent/CreditsScroll" unique_id=915740016]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsPanel/CreditMargins/CreditsContent/CreditsScroll/ScrollMargin" unique_id=1446894559]
+layout_mode = 2
+text = "Credits
+
+Programming
+
+
+Jack Hagerty
+
+
+
+
+Art
+
+
+
+Artst
+
+
+
+
+
+Audi
+
+
+
+AUDIO
+
+SPECIAL THANKS
+
+WORCESTER POLYTECHNIC INSTITUTE
+
+THANK YOU FOR PLAYING"
+fit_content = true
+scroll_active = false
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1249968220]
+stream = ExtResource("2_ekxnf")
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1956319303]
+stream = ExtResource("3_bqqt6")
+bus = &"SFX"
+
+[node name="Back" type="AudioStreamPlayer" parent="." unique_id=1718285847]
+stream = ExtResource("4_wu84c")
+bus = &"SFX"
+
+[node name="Version and Credit" type="AudioStreamPlayer" parent="." unique_id=541498788]
+stream = ExtResource("5_8ln24")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="MenuContainer/MenuBottons/StartGame" to="." method="_on_start_game_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/MenuBottons/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/MenuBottons/VersionNotes" to="." method="_on_version_notes_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/MenuBottons/VersionNotes" to="." method="_on_version_notes_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/MenuBottons/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/MenuBottons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VersionNotes/VersionMargins/VersionNotesContent/BackCenter/VersionBackButton" to="." method="_on_version_back_button_pressed"]
+[connection signal="pressed" from="CreditsPanel/CreditMargins/CreditsContent/BackCenter/CreditBackButton" to="." method="_on_credit_back_button_pressed"]

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bh2ogfloaj5pw"]
+
+[ext_resource type="VideoStream" uid="uid://d1vnt0no3txgb" path="res://assets/Videos/splash.ogv" id="1_n4g2v"]
+[ext_resource type="Script" uid="uid://yha4blo7x0tj" path="res://scripts/splash_video.gd" id="2_hsxvm"]
+
+[node name="SplashScreen" type="Control" unique_id=1974020738]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1966217653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=291784560]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 0.99
+
+[node name="SplashVideo" type="VideoStreamPlayer" parent="AspectRatioContainer" unique_id=37583221]
+layout_mode = 2
+stream = ExtResource("1_n4g2v")
+autoplay = true
+expand = true
+script = ExtResource("2_hsxvm")
+
+[connection signal="finished" from="AspectRatioContainer/SplashVideo" to="AspectRatioContainer/SplashVideo" method="_on_finished"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpoithyhqngpy"
+path="res://.godot/imported/Version notes and credits.mp3-fefa984db7c9ea9c38cce8110923f9ce.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Version notes and credits.mp3"
+dest_files=["res://.godot/imported/Version notes and credits.mp3-fefa984db7c9ea9c38cce8110923f9ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
