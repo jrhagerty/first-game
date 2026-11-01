@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://btvetxn3a0nfn"]
+
+[ext_resource type="Script" uid="uid://bvbxl67eel32o" path="res://scripts/killzone.gd" id="1_xlapc"]
+[ext_resource type="AudioStream" uid="uid://cmkg7hrbl3b7a" path="res://assets/sounds/floraphonic-classic-game-action-negative-8-224414.mp3" id="2_kl8fp"]
+
+[node name="Killzone" type="Area2D" unique_id=1569972286]
+collision_mask = 2
+script = ExtResource("1_xlapc")
+
+[node name="Timer" type="Timer" parent="." unique_id=642867547]
+wait_time = 0.6
+one_shot = true
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=800167525]
+stream = ExtResource("2_kl8fp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
