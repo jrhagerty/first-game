@@ -34,6 +34,7 @@ layout_mode = 2
 stream = ExtResource("1_n4g2v")
 autoplay = true
 expand = true
+bus = &"SFX"
 script = ExtResource("2_hsxvm")
 
 [connection signal="finished" from="AspectRatioContainer/SplashVideo" to="AspectRatioContainer/SplashVideo" method="_on_finished"]

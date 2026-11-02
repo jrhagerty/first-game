@@ -54,3 +54,9 @@ func _on_version_notes_mouse_entered() -> void:
 
 func _on_credits_mouse_entered() -> void:
 	hover.play()
+
+func _on_version_back_button_mouse_entered() -> void:
+	hover.play()
+
+func _on_credit_back_button_mouse_entered() -> void:
+	hover.play()

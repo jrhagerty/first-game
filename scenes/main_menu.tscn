@@ -237,5 +237,7 @@ bus = &"SFX"
 [connection signal="pressed" from="MenuContainer/MenuBottons/VersionNotes" to="." method="_on_version_notes_pressed"]
 [connection signal="mouse_entered" from="MenuContainer/MenuBottons/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="MenuContainer/MenuBottons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="VersionNotes/VersionMargins/VersionNotesContent/BackCenter/VersionBackButton" to="." method="_on_version_back_button_mouse_entered"]
 [connection signal="pressed" from="VersionNotes/VersionMargins/VersionNotesContent/BackCenter/VersionBackButton" to="." method="_on_version_back_button_pressed"]
+[connection signal="mouse_entered" from="CreditsPanel/CreditMargins/CreditsContent/BackCenter/CreditBackButton" to="." method="_on_credit_back_button_mouse_entered"]
 [connection signal="pressed" from="CreditsPanel/CreditMargins/CreditsContent/BackCenter/CreditBackButton" to="." method="_on_credit_back_button_pressed"]
