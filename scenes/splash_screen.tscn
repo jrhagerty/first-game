@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bh2ogfloaj5pw"]
 
-[ext_resource type="VideoStream" uid="uid://d1vnt0no3txgb" path="res://assets/Videos/splash.ogv" id="1_n4g2v"]
+[ext_resource type="VideoStream" uid="uid://byiu1omq8e7xi" path="res://assets/Videos/splashf.ogv" id="1_hsxvm"]
 [ext_resource type="Script" uid="uid://yha4blo7x0tj" path="res://scripts/splash_video.gd" id="2_hsxvm"]
 
 [node name="SplashScreen" type="Control" unique_id=1974020738]
@@ -31,7 +31,7 @@ ratio = 0.99
 
 [node name="SplashVideo" type="VideoStreamPlayer" parent="AspectRatioContainer" unique_id=37583221]
 layout_mode = 2
-stream = ExtResource("1_n4g2v")
+stream = ExtResource("1_hsxvm")
 autoplay = true
 expand = true
 bus = &"SFX"
