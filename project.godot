@@ -28,10 +28,6 @@ Music="*uid://d2p5iwthtitxx"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/rainwire_fx/plugin.cfg")
-
 [input]
 
 Jump={
