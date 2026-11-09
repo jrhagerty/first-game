@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://ddyl2r188lap5"]
+
+[ext_resource type="Script" uid="uid://m3bctbc6n24n" path="res://scripts/dash_dust.gd" id="1_dlaoa"]
+[ext_resource type="Texture2D" uid="uid://daci3kkxtih3s" path="res://assets/effects/spritesheets/dash_dust_64x64_9f.png" id="1_x12cs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlaoa"]
+atlas = ExtResource("1_x12cs")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d566"]
+atlas = ExtResource("1_x12cs")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8daq"]
+atlas = ExtResource("1_x12cs")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkxy4"]
+atlas = ExtResource("1_x12cs")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0xrp"]
+atlas = ExtResource("1_x12cs")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_640xv"]
+atlas = ExtResource("1_x12cs")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_704xm"]
+atlas = ExtResource("1_x12cs")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvk2a"]
+atlas = ExtResource("1_x12cs")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u54be"]
+atlas = ExtResource("1_x12cs")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dlaoa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlaoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d566")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8daq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkxy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0xrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_640xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_704xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvk2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u54be")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 60.0
+}]
+
+[node name="Dash Dust" type="Node2D" unique_id=1746551457]
+script = ExtResource("1_dlaoa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1138032265]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_dlaoa")

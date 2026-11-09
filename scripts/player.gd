@@ -3,16 +3,19 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-const DASH_SPEED = 450.0
-const DASH_DURATION = 0.15
+const DASH_SPEED = 400.0
+const DASH_DURATION = 0.175
+const DASH_DUST_SCENE = preload("res://scenes/dash_dust.tscn")
 
 var is_dashing = false
 var can_air_dash = true
 var dash_timer = 0.0
 var facing_direction = 1.0
+var dash_direction = 1.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
+@onready var afterimage: Afterimage2D = $AnimatedSprite2D/Afterimage2D
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -48,18 +51,26 @@ func _physics_process(delta: float) -> void:
 		can_air_dash = true
 		
 	if Input.is_action_just_pressed("dash") and not is_on_floor() and can_air_dash:
-				is_dashing = true
-				can_air_dash = false
-				dash_timer = DASH_DURATION
-				velocity.y = 0
+		is_dashing = true
+		can_air_dash = false
+		dash_timer = DASH_DURATION
+		velocity.y = 0
+		dash_direction = facing_direction
+		afterimage.emitting = true
+		var dust = DASH_DUST_SCENE.instantiate()
+		get_parent().add_child(dust)
+		dust.global_position = global_position + Vector2(-facing_direction * 5, -20)
+		var dust_sprite: AnimatedSprite2D = dust.get_node("AnimatedSprite2D")
+		dust_sprite.flip_h = facing_direction < 0
 		
 	if is_dashing:
 		dash_timer -= delta
-		velocity.x = facing_direction * DASH_SPEED
+		velocity.x = dash_direction * DASH_SPEED
 		velocity.y = 0
 		
 		if dash_timer <= 0:
 			is_dashing = false
+			afterimage.emitting = false
 	else:
 		if direction:
 			velocity.x = direction * SPEED

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cfsd4p82x83g" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bhqlgaeisqull" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://3dk7yk8dshen" path="res://addons/almios_afterimage/afterimage_2d.gd" id="3_dqkch"]
 [ext_resource type="AudioStream" uid="uid://djyjise4qu42w" path="res://assets/sounds/jump.wav" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
@@ -181,6 +182,19 @@ position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_r3iag")
 animation = &"jump"
 autoplay = "default"
+
+[node name="Afterimage2D" type="Node2D" parent="AnimatedSprite2D" unique_id=816485873 node_paths=PackedStringArray("target")]
+show_behind_parent = true
+position = Vector2(0, 14)
+script = ExtResource("3_dqkch")
+emitting = false
+target = NodePath("..")
+interval = 0.01
+min_distance = 1.0
+lifetime = 0.39999999999999997
+look = 2
+color = Color(0.41459146, 0.75200653, 1, 0.7019608)
+metadata/_custom_type_script = "uid://3dk7yk8dshen"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=368397040]
 position = Vector2(0, -8.000001)
