@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bhqlgaeisqull" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://3dk7yk8dshen" path="res://addons/almios_afterimage/afterimage_2d.gd" id="3_dqkch"]
 [ext_resource type="AudioStream" uid="uid://djyjise4qu42w" path="res://assets/sounds/jump.wav" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://cyale5l2u7mqr" path="res://assets/sounds/whoosh.mp3" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -191,7 +192,7 @@ emitting = false
 target = NodePath("..")
 interval = 0.01
 min_distance = 1.0
-lifetime = 0.39999999999999997
+lifetime = 0.4
 look = 2
 color = Color(0.41459146, 0.75200653, 1, 0.7019608)
 metadata/_custom_type_script = "uid://3dk7yk8dshen"
@@ -203,5 +204,10 @@ shape = SubResource("CircleShape2D_pqj25")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=621515268]
 stream = ExtResource("3_qhqgy")
+volume_db = -12.552
+bus = &"SFX"
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="." unique_id=1387324348]
+stream = ExtResource("5_qlg0r")
 volume_db = -12.552
 bus = &"SFX"

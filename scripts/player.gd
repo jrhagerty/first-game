@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 const DASH_SPEED = 400.0
@@ -16,6 +15,7 @@ var dash_direction = 1.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var afterimage: Afterimage2D = $AnimatedSprite2D/Afterimage2D
+@onready var dash_sound: AudioStreamPlayer2D = $DashSound
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -57,6 +57,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 		dash_direction = facing_direction
 		afterimage.emitting = true
+		dash_sound.play()
 		var dust = DASH_DUST_SCENE.instantiate()
 		get_parent().add_child(dust)
 		dust.global_position = global_position + Vector2(-facing_direction * 5, -20)
