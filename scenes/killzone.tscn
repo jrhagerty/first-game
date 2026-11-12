@@ -1,18 +1,27 @@
 [gd_scene format=3 uid="uid://btvetxn3a0nfn"]
 
 [ext_resource type="Script" uid="uid://bvbxl67eel32o" path="res://scripts/killzone.gd" id="1_xlapc"]
-[ext_resource type="AudioStream" uid="uid://cmkg7hrbl3b7a" path="res://assets/sounds/floraphonic-classic-game-action-negative-8-224414.mp3" id="2_kl8fp"]
+[ext_resource type="AudioStream" uid="uid://bxrwvatf8y3wc" path="res://assets/new sounds/Death_sfx.wav" id="2_j2mit"]
+[ext_resource type="AudioStream" uid="uid://rvmagj6tbdso" path="res://assets/new sounds/Revive_sfx.wav" id="3_j2mit"]
 
 [node name="Killzone" type="Area2D" unique_id=1569972286]
 collision_mask = 2
 script = ExtResource("1_xlapc")
 
 [node name="Timer" type="Timer" parent="." unique_id=642867547]
-wait_time = 0.6
+wait_time = 0.8
 one_shot = true
+ignore_time_scale = true
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=800167525]
-stream = ExtResource("2_kl8fp")
+stream = ExtResource("2_j2mit")
+volume_db = -13.371
+bus = &"SFX"
+
+[node name="ReviveSound" type="AudioStreamPlayer2D" parent="." unique_id=359155445]
+stream = ExtResource("3_j2mit")
+volume_db = -13.496
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

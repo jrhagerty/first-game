@@ -3,8 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://cfsd4p82x83g" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bhqlgaeisqull" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://3dk7yk8dshen" path="res://addons/almios_afterimage/afterimage_2d.gd" id="3_dqkch"]
-[ext_resource type="AudioStream" uid="uid://djyjise4qu42w" path="res://assets/sounds/jump.wav" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://cuqgyaq8vfbwj" path="res://assets/new sounds/Jump_sfx.wav" id="4_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://cyale5l2u7mqr" path="res://assets/sounds/whoosh.mp3" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://cvqtww75cw8at" path="res://assets/new sounds/Landing_sfx.wav" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -173,7 +174,17 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqj25"]
 
-[node name="Player" type="CharacterBody2D" unique_id=849927642]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tuyoq"]
+random_pitch = 1.1553527
+streams_count = 1
+stream_0/stream = ExtResource("4_qlg0r")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fjrip"]
+random_pitch = 1.587401
+streams_count = 1
+stream_0/stream = ExtResource("6_tuyoq")
+
+[node name="Player" type="CharacterBody2D" unique_id=849927642 groups=["player"]]
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_g2els")
@@ -203,11 +214,16 @@ scale = Vector2(0.48219776, 0.4837408)
 shape = SubResource("CircleShape2D_pqj25")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=621515268]
-stream = ExtResource("3_qhqgy")
+stream = SubResource("AudioStreamRandomizer_tuyoq")
 volume_db = -12.552
 bus = &"SFX"
 
 [node name="DashSound" type="AudioStreamPlayer2D" parent="." unique_id=1387324348]
 stream = ExtResource("5_qlg0r")
+volume_db = -12.552
+bus = &"SFX"
+
+[node name="LandingSound" type="AudioStreamPlayer2D" parent="." unique_id=1641363562]
+stream = SubResource("AudioStreamRandomizer_fjrip")
 volume_db = -12.552
 bus = &"SFX"

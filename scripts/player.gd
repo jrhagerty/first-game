@@ -11,11 +11,14 @@ var can_air_dash = true
 var dash_timer = 0.0
 var facing_direction = 1.0
 var dash_direction = 1.0
+var is_airborne = false
+var has_jumped = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var afterimage: Afterimage2D = $AnimatedSprite2D/Afterimage2D
 @onready var dash_sound: AudioStreamPlayer2D = $DashSound
+@onready var landing_sound: AudioStreamPlayer2D = $LandingSound
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,6 +28,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		jump_sound.play()
+		has_jumped = true
 		velocity.y = JUMP_VELOCITY
 
 	# Input direction -1 0 1
@@ -77,5 +81,14 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
+	var was_on_floor = is_on_floor()
+	
 	move_and_slide()
+	
+	if not is_on_floor():
+		is_airborne = true
+	
+	if not was_on_floor and is_on_floor() and is_airborne and has_jumped:
+		landing_sound.play()
+		is_airborne = false

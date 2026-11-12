@@ -22,11 +22,16 @@ buses/default_bus_layout="uid://dhgcsx13geh8s"
 [autoload]
 
 Music="*uid://d2p5iwthtitxx"
+FX="*uid://c1f2iiaucnvnh"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/saltmire_fx/plugin.cfg")
 
 [input]
 

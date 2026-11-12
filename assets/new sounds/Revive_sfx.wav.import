@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rvmagj6tbdso"
+path="res://.godot/imported/Revive_sfx.wav-fd6771dbce53128feb72f2ae379efd32.sample"
+
+[deps]
+
+source_file="res://assets/new sounds/Revive_sfx.wav"
+dest_files=["res://.godot/imported/Revive_sfx.wav-fd6771dbce53128feb72f2ae379efd32.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

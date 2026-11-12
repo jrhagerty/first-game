@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvqtww75cw8at"
+path="res://.godot/imported/Landing_sfx.wav-fe1f011b3971b886968a6a426df55656.sample"
+
+[deps]
+
+source_file="res://assets/new sounds/Landing_sfx.wav"
+dest_files=["res://.godot/imported/Landing_sfx.wav-fe1f011b3971b886968a6a426df55656.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
