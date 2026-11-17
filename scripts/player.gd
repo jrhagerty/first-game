@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 const DASH_SPEED = 400.0
@@ -11,14 +12,10 @@ var can_air_dash = true
 var dash_timer = 0.0
 var facing_direction = 1.0
 var dash_direction = 1.0
-var is_airborne = false
-var has_jumped = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var afterimage: Afterimage2D = $AnimatedSprite2D/Afterimage2D
-@onready var dash_sound: AudioStreamPlayer2D = $DashSound
-@onready var landing_sound: AudioStreamPlayer2D = $LandingSound
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -28,7 +25,6 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		jump_sound.play()
-		has_jumped = true
 		velocity.y = JUMP_VELOCITY
 
 	# Input direction -1 0 1
@@ -36,12 +32,25 @@ func _physics_process(delta: float) -> void:
 	
 	if direction != 0:
 		facing_direction = sign(direction)
-	
-	# Flip the sprite
-	if direction > 0:
+		
+		# Pick the animation from the action and facing direction
+	var dir_suffix := "_right" if facing_direction > 0 else "_left"
+	var anim_base: String
+	if is_on_floor():
+		anim_base = "idle" if direction == 0 else "run"
+	else:
+		anim_base = "jump"
+
+	var anim_name := anim_base + dir_suffix
+	if animated_sprite_2d.sprite_frames.has_animation(anim_name):
 		animated_sprite_2d.flip_h = false
-	elif direction < 0:
-		animated_sprite_2d.flip_h = true
+		animated_sprite_2d.play(anim_name)
+	else:
+		# No left version yet: flip the right one instead
+		animated_sprite_2d.flip_h = facing_direction < 0
+		animated_sprite_2d.play(anim_base + "_right")	
+	
+	
 	
 	if is_on_floor():
 		if direction == 0:
@@ -61,7 +70,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 		dash_direction = facing_direction
 		afterimage.emitting = true
-		dash_sound.play()
 		var dust = DASH_DUST_SCENE.instantiate()
 		get_parent().add_child(dust)
 		dust.global_position = global_position + Vector2(-facing_direction * 5, -20)
@@ -81,14 +89,5 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	var was_on_floor = is_on_floor()
-	
+
 	move_and_slide()
-	
-	if not is_on_floor():
-		is_airborne = true
-	
-	if not was_on_floor and is_on_floor() and is_airborne and has_jumped:
-		landing_sound.play()
-		is_airborne = false
