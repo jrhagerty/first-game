@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://btvetxn3a0nfn" path="res://scenes/killzone.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://60srmp8f1guv" path="res://scenes/slime.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://jgv88f60q8tg" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://c8ymq12itd0xc" path="res://scenes/sword.tscn" id="9_vtaks"]
+[ext_resource type="Script" uid="uid://elpwwann6guy" path="res://scripts/win_ui.gd" id="10_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -349,3 +351,39 @@ position = Vector2(377, -65)
 
 [node name="Slime5" parent="Slimes" unique_id=2086957509 instance=ExtResource("6_p57ef")]
 position = Vector2(89, 29)
+
+[node name="Sword" parent="." unique_id=3027338 instance=ExtResource("9_vtaks")]
+position = Vector2(62.999992, -27)
+scale = Vector2(0.6590916, 0.6590916)
+
+[node name="WinUI" type="CanvasLayer" parent="." unique_id=304413406]
+script = ExtResource("10_kvpfn")
+
+[node name="winPanel" type="ColorRect" parent="WinUI" unique_id=1133203735]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4333996, 0.5906624, 0.4706415, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="WinUI/winPanel" unique_id=227058542]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = -24.0
+offset_right = 291.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_font_sizes/font_size = 48
+text = "Level Complete!"
+horizontal_alignment = 1
+vertical_alignment = 1
