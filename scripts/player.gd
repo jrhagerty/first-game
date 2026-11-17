@@ -19,6 +19,8 @@ var has_jumped = false
 @onready var afterimage: Afterimage2D = $AnimatedSprite2D/Afterimage2D
 @onready var dash_sound: AudioStreamPlayer2D = $DashSound
 @onready var landing_sound: AudioStreamPlayer2D = $LandingSound
+@onready var footstep_sound: AudioStreamPlayer2D = $FootstepSound
+@onready var footstep_timer: Timer = $FootstepTimer
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -33,6 +35,12 @@ func _physics_process(delta: float) -> void:
 
 	# Input direction -1 0 1
 	var direction := Input.get_axis("move_left", "move_right")
+	
+	if is_on_floor() and direction != 0 and not is_dashing:
+		if footstep_timer.is_stopped():
+			footstep_timer.start()
+	else:
+		footstep_timer.stop()
 	
 	if direction != 0:
 		facing_direction = sign(direction)
@@ -92,3 +100,6 @@ func _physics_process(delta: float) -> void:
 	if not was_on_floor and is_on_floor() and is_airborne and has_jumped:
 		landing_sound.play()
 		is_airborne = false
+
+func _on_footstep_timer_timeout() -> void:
+	footstep_sound.play()
