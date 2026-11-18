@@ -25,6 +25,7 @@ streams_count = 1
 stream_0/stream = ExtResource("6_tuyoq")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pqj25"]
+random_pitch = 1.0263338
 streams_count = 3
 stream_0/stream = ExtResource("7_ur7pv")
 stream_1/stream = ExtResource("8_y4r1p")
@@ -39,8 +40,8 @@ script = ExtResource("1_g2els")
 position = Vector2(0, -14.8)
 scale = Vector2(0.575, 0.575)
 sprite_frames = ExtResource("2_ur7pv")
-animation = &"idle_left"
-frame_progress = 0.9927907
+animation = &"run_right"
+frame_progress = 0.97347623
 
 [node name="Afterimage2D" type="Node2D" parent="AnimatedSprite2D" unique_id=816485873 node_paths=PackedStringArray("target")]
 show_behind_parent = true
@@ -79,7 +80,4 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_pqj25")
 bus = &"SFX"
 
-[node name="FootstepTimer" type="Timer" parent="." unique_id=1795565818]
-wait_time = 0.25
-
-[connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
