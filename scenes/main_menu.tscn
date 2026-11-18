@@ -147,7 +147,7 @@ Version 0.3
 New
 -Added new player animations for idle, running, jumping, and dashing
 -Added a level-completion screen that displays the number of coins collected
--Added Replay and Main Menu buttons to the completetion screen
+-Added Replay and Main Menu buttons to the completion screen
 -Added randomized footstep sounds
 
 Improvements
