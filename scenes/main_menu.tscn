@@ -142,7 +142,25 @@ Audio
 Death
 -Added Saltmire FX, a shader that creates a dissolve and appear effect
 
+Version 0.3
 
+New
+-Added new player animations for idle, running, jumping, and dashing
+-Added a level-completion screen that displays the number of coins collected
+-Added Replay and Main Menu buttons to the completetion screen
+-Added randomized footstep sounds
+
+Improvements
+-Adjusted level difficulty to be more gradual challenge
+-Improved enemy placement and platforming
+-Improved death and respawn effects
+-Updated moving platforms and animations
+-Improved UI layout
+
+Bug Fix
+-Coin tracking issues
+-Player animation issues
+-Adjust animation timing and sound synchronization
 
 
 

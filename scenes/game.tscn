@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://jgv88f60q8tg" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c8ymq12itd0xc" path="res://scenes/sword.tscn" id="9_vtaks"]
 [ext_resource type="Script" uid="uid://elpwwann6guy" path="res://scripts/win_ui.gd" id="10_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://dqwja0rwrwwl5" path="res://assets/sounds/hover.mp3" id="11_dinhu"]
+[ext_resource type="AudioStream" uid="uid://bw8uohm51rwgg" path="res://assets/sounds/confirm.mp3" id="12_kvuet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -445,7 +447,6 @@ scale = Vector2(0.6590916, 0.6590916)
 script = ExtResource("10_kvpfn")
 
 [node name="winPanel" type="ColorRect" parent="WinUI" unique_id=1133203735]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -454,39 +455,63 @@ grow_vertical = 2
 color = Color(0.4333996, 0.5906624, 0.4706415, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="WinUI/winPanel" unique_id=227058542]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -291.0
-offset_top = -48.0
-offset_right = 291.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("7_u5sy4")
-theme_override_font_sizes/font_size = 48
-text = "Level Complete!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CoinCountLabel" type="Label" parent="WinUI/winPanel" unique_id=1654868457]
+[node name="VBoxContainer" type="VBoxContainer" parent="WinUI/winPanel" unique_id=193222741]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -16.0
-offset_right = 0.5
-offset_bottom = 16.0
+offset_left = -291.0
+offset_top = -77.0
+offset_right = 291.0
+offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Label" type="Label" parent="WinUI/winPanel/VBoxContainer" unique_id=227058542]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_font_sizes/font_size = 48
+text = "Level Complete!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinCountLabel" type="Label" parent="WinUI/winPanel/VBoxContainer" unique_id=1654868457]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("7_u5sy4")
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="MainMenuButton" type="Button" parent="WinUI/winPanel/VBoxContainer" unique_id=1864036240]
+process_mode = 3
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("7_u5sy4")
+text = "MAIN MENU"
+
+[node name="ReplayButton" type="Button" parent="WinUI/winPanel/VBoxContainer" unique_id=112417502]
+process_mode = 3
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("7_u5sy4")
+text = "REPLAY"
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1510756272]
+stream = ExtResource("11_dinhu")
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1832949913]
+stream = ExtResource("12_kvuet")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="WinUI/winPanel/VBoxContainer/MainMenuButton" to="WinUI" method="_on_main_menu_button_mouse_entered"]
+[connection signal="pressed" from="WinUI/winPanel/VBoxContainer/MainMenuButton" to="WinUI" method="_on_main_menu_button_pressed"]
+[connection signal="mouse_entered" from="WinUI/winPanel/VBoxContainer/ReplayButton" to="WinUI" method="_on_replay_button_mouse_entered"]
+[connection signal="pressed" from="WinUI/winPanel/VBoxContainer/ReplayButton" to="WinUI" method="_on_replay_button_pressed"]
