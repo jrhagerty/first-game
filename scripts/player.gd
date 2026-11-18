@@ -45,19 +45,24 @@ func _physics_process(delta: float) -> void:
 	if direction != 0:
 		facing_direction = sign(direction)
 	
-	# Flip the sprite
-	if direction > 0:
-		animated_sprite_2d.flip_h = false
-	elif direction < 0:
-		animated_sprite_2d.flip_h = true
+	var anim_base: String
 	
-	if is_on_floor():
-		if direction == 0:
-			animated_sprite_2d.play("default")
-		else:
-			animated_sprite_2d.play("run")
+	if is_dashing:
+		anim_base = "dash"
+	elif is_on_floor():
+		anim_base = "idle" if direction == 0 else "run"
 	else:
-		animated_sprite_2d.play("jump")
+		anim_base = "jump"
+		
+	var dir_suffix = "_right" if facing_direction > 0 else "_left"
+	var anim_name = anim_base + dir_suffix
+	
+	if animated_sprite_2d.sprite_frames.has_animation(anim_name):
+		animated_sprite_2d.flip_h=false
+		animated_sprite_2d.play(anim_name)
+	else:
+		push_warning("Missing animation: " + anim_name)
+	
 		
 	if is_on_floor():
 		can_air_dash = true

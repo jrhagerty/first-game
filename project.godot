@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://dhgcsx13geh8s"
 
 Music="*uid://d2p5iwthtitxx"
 FX="*uid://c1f2iiaucnvnh"
+GameManager="*uid://20rp4jtjat5r"
 
 [display]
 
