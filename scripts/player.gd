@@ -20,7 +20,7 @@ var has_jumped = false
 @onready var dash_sound: AudioStreamPlayer2D = $DashSound
 @onready var landing_sound: AudioStreamPlayer2D = $LandingSound
 @onready var footstep_sound: AudioStreamPlayer2D = $FootstepSound
-@onready var footstep_timer: Timer = $FootstepTimer
+@onready var revive_sound: AudioStreamPlayer2D = $ReviveSound
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -110,3 +110,10 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		return
 	if animated_sprite_2d.frame in [1, 8]:
 		footstep_sound.play()
+		
+func _ready() -> void:
+	if KillZone.player_died:
+		KillZone.player_died = false
+		revive_sound.play()
+		await FX.appear(animated_sprite_2d, 0.25).finished
+		FX.clear(animated_sprite_2d)

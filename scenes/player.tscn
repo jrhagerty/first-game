@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dnp2isnafk3w6" path="res://assets/new sounds/Footsteps/Footstep 1 (consolidated).wav" id="7_ur7pv"]
 [ext_resource type="AudioStream" uid="uid://dslev345km2ro" path="res://assets/new sounds/Footsteps/Footstep 2 (consolidated).wav" id="8_y4r1p"]
 [ext_resource type="AudioStream" uid="uid://farjkyw3l2p2" path="res://assets/new sounds/Footsteps/Footstep 3 (consolidated).wav" id="9_d2wvv"]
+[ext_resource type="AudioStream" uid="uid://rvmagj6tbdso" path="res://assets/new sounds/Revive_sfx.wav" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
 radius = 6.7973733
@@ -41,7 +42,7 @@ position = Vector2(0, -14.8)
 scale = Vector2(0.575, 0.575)
 sprite_frames = ExtResource("2_ur7pv")
 animation = &"run_right"
-frame_progress = 0.97347623
+frame_progress = 0.06270397
 
 [node name="Afterimage2D" type="Node2D" parent="AnimatedSprite2D" unique_id=816485873 node_paths=PackedStringArray("target")]
 show_behind_parent = true
@@ -53,7 +54,7 @@ interval = 0.01
 min_distance = 1.0
 lifetime = 0.4
 look = 2
-color = Color(0.41459146, 0.75200653, 1, 0.7019608)
+color = Color(5.679429e-06, 0.8503904, 0.5292742, 0.7019608)
 metadata/_custom_type_script = "uid://3dk7yk8dshen"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=368397040]
@@ -78,6 +79,11 @@ bus = &"SFX"
 
 [node name="FootstepSound" type="AudioStreamPlayer2D" parent="." unique_id=1958391164]
 stream = SubResource("AudioStreamRandomizer_pqj25")
+bus = &"SFX"
+
+[node name="ReviveSound" type="AudioStreamPlayer2D" parent="." unique_id=570632389]
+stream = ExtResource("10_y4r1p")
+volume_db = -13.496
 bus = &"SFX"
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

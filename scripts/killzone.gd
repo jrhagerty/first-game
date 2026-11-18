@@ -3,15 +3,10 @@ class_name KillZone
 
 @onready var timer: Timer = $Timer
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
-@onready var revive_sound: AudioStreamPlayer2D = $ReviveSound
 
 static var player_died: bool = false
 var is_dying = false
 
-func _ready() -> void:
-	if KillZone.player_died:
-		KillZone.player_died = false
-		revive_sound.play()
 
 func _on_body_entered(body):
 	if is_dying:
