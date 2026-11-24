@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -300.0
 const DASH_SPEED = 400.0
 const DASH_DURATION = 0.175
 const DASH_DUST_SCENE = preload("res://scenes/dash_dust.tscn")
+const COYOTE_TIME = 0.1
 
 var is_dashing = false
 var can_air_dash = true
@@ -13,6 +14,7 @@ var facing_direction = 1.0
 var dash_direction = 1.0
 var is_airborne = false
 var has_jumped = false
+var coyote_timer = 0.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
@@ -26,12 +28,18 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and not is_dashing:
 		velocity += get_gravity() * delta
+		
+	if is_on_floor():
+		coyote_timer = COYOTE_TIME
+	else:
+		coyote_timer = max(coyote_timer - delta, 0.0)
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and coyote_timer > 0.0:
 		jump_sound.play()
 		has_jumped = true
 		velocity.y = JUMP_VELOCITY
+		coyote_timer = 0.0
 
 	# Input direction -1 0 1
 	var direction := Input.get_axis("move_left", "move_right")

@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dqa01xdajdmpt" path="res://scenes/platform.tscn" id="7_cr2eh"]
 [ext_resource type="PackedScene" uid="uid://60srmp8f1guv" path="res://scenes/slime.tscn" id="8_cy6r3"]
 [ext_resource type="PackedScene" uid="uid://c8ymq12itd0xc" path="res://scenes/sword.tscn" id="9_llcge"]
-[ext_resource type="Script" uid="uid://cihufgqg5hpvs" path="res://scenes/sword.gd" id="10_lwi15"]
-[ext_resource type="Script" uid="uid://elpwwann6guy" path="res://scenes/win_ui.gd" id="11_e6mo4"]
+[ext_resource type="Script" uid="uid://elpwwann6guy" path="res://scripts/win_ui.gd" id="11_e6mo4"]
+[ext_resource type="AudioStream" uid="uid://dqwja0rwrwwl5" path="res://assets/sounds/hover.mp3" id="11_px6rj"]
+[ext_resource type="AudioStream" uid="uid://bw8uohm51rwgg" path="res://assets/sounds/confirm.mp3" id="12_2ucnx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("3_lwi15")
@@ -344,26 +345,87 @@ text = "Watch out now"
 
 [node name="Sword" parent="." unique_id=3027338 instance=ExtResource("9_llcge")]
 position = Vector2(898, -341)
-script = ExtResource("10_lwi15")
 
-[node name="winUI" type="CanvasLayer" parent="." unique_id=283345956]
+[node name="WinUI" type="CanvasLayer" parent="." unique_id=719400594]
+process_mode = 3
 script = ExtResource("11_e6mo4")
 
-[node name="winPanel" type="ColorRect" parent="winUI" unique_id=1283832845]
+[node name="winPanel" type="ColorRect" parent="WinUI" unique_id=1524579134]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.6)
+color = Color(0.4333996, 0.5906624, 0.4706415, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="winUI/winPanel" unique_id=1623965435]
+[node name="VBoxContainer" type="VBoxContainer" parent="WinUI/winPanel" unique_id=1794410090]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = -77.0
+offset_right = 291.0
+offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "LEVEL COMPLETED!!!"
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Label" type="Label" parent="WinUI/winPanel/VBoxContainer" unique_id=2072601377]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_llcge")
+theme_override_font_sizes/font_size = 48
+text = "Level Complete!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CoinCountLabel" type="Label" parent="WinUI/winPanel/VBoxContainer" unique_id=1808667625]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_llcge")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NextLevelButton" type="Button" parent="WinUI/winPanel/VBoxContainer" unique_id=505444543]
+process_mode = 3
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_llcge")
+text = "NEXT LEVEL"
+
+[node name="ReplayButton" type="Button" parent="WinUI/winPanel/VBoxContainer" unique_id=1170431282]
+process_mode = 3
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_llcge")
+text = "REPLAY"
+
+[node name="MainMenuButton2" type="Button" parent="WinUI/winPanel/VBoxContainer" unique_id=1612449595]
+process_mode = 3
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_llcge")
+text = "MAIN MENU"
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=2021771905]
+stream = ExtResource("11_px6rj")
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=2030617569]
+stream = ExtResource("12_2ucnx")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="WinUI/winPanel/VBoxContainer/NextLevelButton" to="WinUI" method="_on_main_menu_button_mouse_entered"]
+[connection signal="pressed" from="WinUI/winPanel/VBoxContainer/NextLevelButton" to="WinUI" method="_on_next_level_button_pressed"]
+[connection signal="mouse_entered" from="WinUI/winPanel/VBoxContainer/ReplayButton" to="WinUI" method="_on_replay_button_mouse_entered"]
+[connection signal="pressed" from="WinUI/winPanel/VBoxContainer/ReplayButton" to="WinUI" method="_on_replay_button_pressed"]
+[connection signal="mouse_entered" from="WinUI/winPanel/VBoxContainer/MainMenuButton2" to="WinUI" method="_on_main_menu_button_mouse_entered"]
+[connection signal="pressed" from="WinUI/winPanel/VBoxContainer/MainMenuButton2" to="WinUI" method="_on_main_menu_button_pressed"]
