@@ -18,7 +18,7 @@ func _process(delta):
 
 func _on_start_game_pressed() -> void:
 	click.play()
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_01.tscn")
 
 func _on_version_notes_pressed() -> void:
 	version_and_credit.play()
