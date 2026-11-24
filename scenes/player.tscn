@@ -26,7 +26,7 @@ streams_count = 1
 stream_0/stream = ExtResource("6_tuyoq")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pqj25"]
-random_pitch = 1.0263338
+random_pitch = 1.122462
 streams_count = 3
 stream_0/stream = ExtResource("7_ur7pv")
 stream_1/stream = ExtResource("8_y4r1p")

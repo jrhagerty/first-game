@@ -8,6 +8,8 @@ const DASH_DUST_SCENE = preload("res://scenes/dash_dust.tscn")
 const COYOTE_TIME = 0.1
 const JUMP_BUFFER = 0.1
 const jump_height = 0.5
+const CAMERA_LOOK_AHEAD = 20.0
+const CAMERA_LOOK_SPEED = 4.0
 
 var is_dashing = false
 var can_air_dash = true
@@ -26,6 +28,7 @@ var jump_buffer_timer = 0.0
 @onready var landing_sound: AudioStreamPlayer2D = $LandingSound
 @onready var footstep_sound: AudioStreamPlayer2D = $FootstepSound
 @onready var revive_sound: AudioStreamPlayer2D = $ReviveSound
+@onready var camera: Camera2D = $Camera2D
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -57,6 +60,14 @@ func _physics_process(delta: float) -> void:
 	
 	if direction != 0:
 		facing_direction = sign(direction)
+	
+	var target_offset = facing_direction * CAMERA_LOOK_AHEAD
+	
+	camera.offset.x = lerpf(
+		camera.offset.x,
+		target_offset,
+		1.0 - exp(-CAMERA_LOOK_SPEED * delta)
+	)
 	
 	var anim_base: String
 	
