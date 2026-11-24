@@ -12,8 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://rvmagj6tbdso" path="res://assets/new sounds/Revive_sfx.wav" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
-radius = 6.7973733
-height = 30.336273
+radius = 3.0
+height = 26.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tuyoq"]
 random_pitch = 1.1553527
@@ -59,7 +59,6 @@ metadata/_custom_type_script = "uid://3dk7yk8dshen"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=368397040]
 position = Vector2(0, -13)
-scale = Vector2(0.73557824, 0.79113215)
 shape = SubResource("CapsuleShape2D_y4r1p")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=621515268]
