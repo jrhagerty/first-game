@@ -19,7 +19,7 @@ func _on_body_entered(body):
 	death_sound.play()
 	body.set_physics_process(false)
 	body.get_node("CollisionShape2D").set_deferred("disabled", true)
-	await FX.dissolve(body.get_node("AnimatedSprite2D"), 0.3).finished
-	await get_tree().create_timer(0.15).timeout
+	await FX.dissolve(body.get_node("AnimatedSprite2D"), 0.4).finished
+	await get_tree().create_timer(0.2).timeout
 	KillZone.player_died = true
 	SceneTransition.change_scene(get_tree().current_scene.scene_file_path)

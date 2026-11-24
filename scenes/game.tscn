@@ -310,7 +310,7 @@ position_smoothing_enabled = true
 position = Vector2(0, -33)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1223505764]
-position = Vector2(50, 162)
+position = Vector2(50, 141)
 shape = SubResource("WorldBoundaryShape2D_pqj25")
 
 [node name="Coins" type="Node" parent="." unique_id=2080440392]
