@@ -4,7 +4,7 @@ var fade_rect: ColorRect
 var transition := false
 
 func _ready() -> void:
-	layer = 100.0
+	layer = 100
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	fade_rect = ColorRect.new()
