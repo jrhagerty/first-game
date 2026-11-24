@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c8ymq12itd0xc"]
 
 [ext_resource type="Script" uid="uid://cihufgqg5hpvs" path="res://scripts/sword.gd" id="1_n355p"]
+[ext_resource type="Texture2D" uid="uid://vfelrswc5caw" path="res://assets/sprites/sword/sword_icon_04.png" id="1_ycbs3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5dpg"]
 size = Vector2(29, 29.5)
