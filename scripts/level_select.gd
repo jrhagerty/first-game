@@ -27,4 +27,4 @@ func _on_level_2_button_2_mouse_entered() -> void:
 	hover.play()
 
 func _on_back_button_mouse_entered() -> void:
-	back.play()
+	hover.play()

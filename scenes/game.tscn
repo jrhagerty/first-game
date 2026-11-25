@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://elpwwann6guy" path="res://scripts/win_ui.gd" id="10_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://dqwja0rwrwwl5" path="res://assets/sounds/hover.mp3" id="11_dinhu"]
 [ext_resource type="AudioStream" uid="uid://bw8uohm51rwgg" path="res://assets/sounds/confirm.mp3" id="12_kvuet"]
+[ext_resource type="PackedScene" uid="uid://cwfkxatq8stl4" path="res://scenes/pause_menu.tscn" id="13_kvuet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -528,6 +529,8 @@ bus = &"SFX"
 [node name="Click" type="AudioStreamPlayer" parent="." unique_id=1832949913]
 stream = ExtResource("12_kvuet")
 bus = &"SFX"
+
+[node name="PauseMenu" parent="." unique_id=2135146647 instance=ExtResource("13_kvuet")]
 
 [connection signal="mouse_entered" from="WinUI/winPanel/VBoxContainer/NextLevelButton" to="WinUI" method="_on_main_menu_button_mouse_entered"]
 [connection signal="pressed" from="WinUI/winPanel/VBoxContainer/NextLevelButton" to="WinUI" method="_on_next_level_button_pressed"]
