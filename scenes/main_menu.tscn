@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjxslt5t6t0x6" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="AudioStream" uid="uid://dqwja0rwrwwl5" path="res://assets/sounds/hover.mp3" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://dg0d6t0glo0y3" path="res://assets/sprites/Background_for_Level_1.png" id="2_oa1go"]
 [ext_resource type="FontFile" uid="uid://jgv88f60q8tg" path="res://assets/fonts/PixelOperator8.ttf" id="2_rtw2f"]
 [ext_resource type="AudioStream" uid="uid://bw8uohm51rwgg" path="res://assets/sounds/confirm.mp3" id="3_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://coelgqd24hmiy" path="res://assets/sounds/backsound.mp3" id="4_wu84c"]
@@ -1022,13 +1023,26 @@ grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1110487554]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_visual_only = false
 color = Color(0.33333334, 0.5882353, 0.827451, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1632196000]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oa1go")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="MenuContainer" type="CenterContainer" parent="." unique_id=299753436]
 layout_mode = 1
@@ -1126,44 +1140,32 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
-text = "Version 0.1
--Added player movement
--Added enemies
--Added moving platforms
--Added death and respawning
--Added death sound
--Added main menu
+text = "Version 0.4
 
-Main Menu
--Added a new title screen
--Added a Start Game btton
--Added a Version Notes button
--Added a Credits button
-
-Version Notes
--Version notes now display the newest updates first.
--Added a Back button for returning to menu.
-
-Credits
--Added a credits screen.
--Added vertically scrolling movie-style credits.
--Added a fixed Back button that remains available.
-
-Version 0.2
+New
+-Added a pause menu with Resume, Restart, and Main Menu
+-Added a level-select screen with unlockable levels
+-Added progress saves so unlocked levels stay even after closing the game
+-Added a Next Level button to the completion screen, however Level 2 is incomplete
+-Added transition between scenes
 
 Gameplay
--Added Dash mechanic
--Added Afterimage2D to create an afterimage effect on the dash
--Added Dash effects
--Changed slime enemies from Node2D to CharacterBody, added gravity, and added wall and platform-edge detection with raycasts
--Fixed tile collisions so slimes could move
+-Improved player collisions to prevent getting stuck on platform edges
+-Added coyote time so you can jump right after leaving a platform
+-Added a jump buffer for chaining jumps
+-Added variable jump height to make the player jump higher if they hold the button longer
+-Improved the camera and added a slight look ahead
 
-Audio
--Basic movement sounds, jump dash, landing, death, revive
--Updated buses
+Visuals
+-Added new world tiles and collisions
+-Added a unfinished background to the menu screens
+-Added transitions for Credits and Version Notes
+-Improved menu layouts and buttons sounds
 
-Death
--Added Saltmire FX, a shader that creates a dissolve and appear effect
+Bug Fixing
+-Fixed issues with level transitions and completion screen
+-Fixed scene and resource issues
+-Fixed problems with UI while the game is paused
 
 Version 0.3
 
@@ -1185,13 +1187,44 @@ Bug Fix
 -Player animation issues
 -Adjust animation timing and sound synchronization
 
+Version 0.2
 
+Gameplay
+-Added Dash mechanic
+-Added Afterimage2D to create an afterimage effect on the dash
+-Added Dash effects
+-Changed slime enemies from Node2D to CharacterBody, added gravity, and added wall and platform-edge detection with raycasts
+-Fixed tile collisions so slimes could move
 
+Audio
+-Basic movement sounds, jump dash, landing, death, revive
+-Updated buses
 
+Death
+-Added Saltmire FX, a shader that creates a dissolve and appear effect
 
+Version 0.1
+-Added player movement
+-Added enemies
+-Added moving platforms
+-Added death and respawning
+-Added death sound
+-Added main menu
 
+Main Menu
+-Added a new title screen
+-Added a Start Game btton
+-Added a Version Notes button
+-Added a Credits button
 
-WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL WORDS TO FILL THE SCROLL "
+Version Notes
+-Version notes now display the newest updates first.
+-Added a Back button for returning to menu.
+
+Credits
+-Added a credits screen.
+-Added vertically scrolling movie-style credits.
+-Added a fixed Back button that remains available."
 fit_content = true
 
 [node name="CreditsPanel" type="Panel" parent="." unique_id=1177646592]

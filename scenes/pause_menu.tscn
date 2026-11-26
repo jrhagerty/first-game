@@ -7,6 +7,7 @@
 script = ExtResource("1_myx47")
 
 [node name="panel" type="Control" parent="." unique_id=830223955]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.5137255, 1, 0.85490197, 0.54509807)
+color = Color(0.66975254, 0.94726783, 0.99999994, 0.54509807)
 
 [node name="CenterContainer" type="CenterContainer" parent="panel" unique_id=1157551203]
 layout_mode = 1

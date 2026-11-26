@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://caxfjuy1len2o" path="res://scripts/level_select.gd" id="1_p0wlc"]
 [ext_resource type="FontFile" uid="uid://jgv88f60q8tg" path="res://assets/fonts/PixelOperator8.ttf" id="2_2epne"]
+[ext_resource type="Texture2D" uid="uid://dg0d6t0glo0y3" path="res://assets/sprites/Background_for_Level_1.png" id="2_r77uv"]
 [ext_resource type="AudioStream" uid="uid://dqwja0rwrwwl5" path="res://assets/sounds/hover.mp3" id="3_rif6e"]
 [ext_resource type="AudioStream" uid="uid://bw8uohm51rwgg" path="res://assets/sounds/confirm.mp3" id="4_chg43"]
 [ext_resource type="AudioStream" uid="uid://coelgqd24hmiy" path="res://assets/sounds/backsound.mp3" id="5_chg43"]
@@ -15,14 +16,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p0wlc")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1241512010]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=35016775]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.33333334, 0.5882353, 0.827451, 1)
+texture = ExtResource("2_r77uv")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=2128724742]
 layout_mode = 1
